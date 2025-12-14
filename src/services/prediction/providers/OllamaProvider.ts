@@ -8,7 +8,7 @@ export class OllamaProvider implements IPredictionProvider {
   constructor() {
     this.baseUrl = import.meta.env.VITE_OLLAMA_API_URL || 'http://localhost:11434';
     // Default to a common model, but this could also be configurable
-    this.model = 'gemma3:1b'; 
+    this.model = import.meta.env.VITE_OLLAMA_MODEL || 'llama3'; 
   }
 
   async getPrediction(symbol: string, currentPrice: number, history?: string): Promise<string> {
